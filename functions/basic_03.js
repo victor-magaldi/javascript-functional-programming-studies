@@ -13,3 +13,10 @@ const add = (...numbersArr) => {
   return total;
 };
 console.log(add(1, 2, 3));
+
+Array.prototype.lastEl = function () {
+  console.log(this[this.length - 1]);
+};
+
+const numeros = [1, 2, 3, 4];
+numeros.lastEl();
