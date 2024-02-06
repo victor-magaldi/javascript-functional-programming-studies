@@ -5,7 +5,7 @@ function generateNumber(min, max) {
 
   return new Promise((resolve) => {
     const factor = max - min + 1;
-    const random = Math.floor(Math.random() * factor);
+    const random = Math.floor(Math.random() * factor) + min;
     resolve(random);
   });
 }
