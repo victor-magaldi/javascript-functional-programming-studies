@@ -3,7 +3,7 @@ function Produto(name, price, desc = 0.15) {
   this.price = price;
   this.desc = desc;
 
-  this.sellingPrice = () => this.price * (1 - desc);
+  this.sellingPrice = () => this.price * (1 - this.desc);
 }
 
 const p1 = new Produto("Geladeira", 2000);
