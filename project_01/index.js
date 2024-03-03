@@ -3,4 +3,6 @@ const fn = require("./functions");
 
 const pathComplete = path.join(__dirname, "legendas");
 
-fn.readDirectory(pathComplete).then((files) => console.log(files));
+fn.readDirectory(pathComplete)
+  .then((files) => fn.filterFilesByExtension(files, "srt"))
+  .then(console.log);
