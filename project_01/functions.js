@@ -1,10 +1,11 @@
 const fs = require("fs");
+const path = require("path");
 
-function readDirectory(path) {
+function readDirectory(pathDir) {
   return new Promise(function (resolve) {
-    let files = fs.readdirSync(path);
-
-    resolve(files);
+    let files = fs.readdirSync(pathDir);
+    const pathsFiles = files.map((file) => path.join(pathDir, file));
+    resolve(pathsFiles);
   });
 }
 
