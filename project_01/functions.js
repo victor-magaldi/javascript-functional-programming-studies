@@ -1,4 +1,3 @@
-const { rejects } = require("assert");
 const fs = require("fs");
 const path = require("path");
 
@@ -25,7 +24,23 @@ function filterFilesByExtension(arrFiles, extension) {
   });
 }
 
+function readFile(path) {
+  return new Promise(function (resolve, reject) {
+    try {
+      const content = fs.readFileSync(path).toString();
+      resolve(content);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+function readFiles(arrPaths) {
+  return Promise.all(arrPaths.map((filePath) => readFile(filePath)));
+}
+
 module.exports = {
   readDirectory,
   filterFilesByExtension,
+  readFiles,
 };
