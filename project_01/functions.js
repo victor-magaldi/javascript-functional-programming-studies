@@ -39,8 +39,12 @@ function readFiles(arrPaths) {
   return Promise.all(arrPaths.map((filePath) => readFile(filePath)));
 }
 
+function removeEmptyItems(arrRows) {
+  return arrRows.filter((row) => row.trim());
+}
 module.exports = {
   readDirectory,
   filterFilesByExtension,
   readFiles,
+  removeEmptyItems,
 };

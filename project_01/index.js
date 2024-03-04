@@ -7,5 +7,6 @@ fn.readDirectory(pathComplete)
   .then((files) => fn.filterFilesByExtension(files, "srt"))
   .then((filesSrt) => fn.readFiles(filesSrt))
   .then((content) => content.join(""))
-  .then((allContent) => allContent.split("\n").length)
+  .then((allContent) => allContent.split("\n"))
+  .then((rows) => fn.removeEmptyItems(rows))
   .then(console.log);
