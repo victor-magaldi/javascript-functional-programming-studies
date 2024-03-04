@@ -42,9 +42,15 @@ function readFiles(arrPaths) {
 function removeEmptyItems(arrRows) {
   return arrRows.filter((row) => row.trim());
 }
+
+function removeIfIncluded(arr, patternText) {
+  return arr.filter((row) => !row.includes(patternText));
+}
+
 module.exports = {
   readDirectory,
   filterFilesByExtension,
   readFiles,
   removeEmptyItems,
+  removeIfIncluded,
 };
