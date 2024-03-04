@@ -47,10 +47,14 @@ function removeIfIncluded(arr, patternText) {
   return arr.filter((row) => !row.includes(patternText));
 }
 
+function removeIfSomeContainNumber(arr, patternText) {
+  return arr.filter((item) => isNaN(item));
+}
 module.exports = {
   readDirectory,
   filterFilesByExtension,
   readFiles,
   removeEmptyItems,
   removeIfIncluded,
+  removeIfSomeContainNumber,
 };

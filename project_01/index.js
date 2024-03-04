@@ -10,5 +10,5 @@ fn.readDirectory(pathComplete)
   .then((allContent) => allContent.split("\n"))
   .then((rows) => fn.removeEmptyItems(rows))
   .then((rows) => fn.removeIfIncluded(rows, "-->"))
-
+  .then((rows) => fn.removeIfSomeContainNumber(rows))
   .then(console.log);
