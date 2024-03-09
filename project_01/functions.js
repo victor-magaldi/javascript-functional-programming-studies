@@ -54,6 +54,18 @@ function removeIfIncluded(patternText) {
 function removeIfSomeContainNumber(arr, patternText) {
   return arr.filter((item) => isNaN(item));
 }
+
+function removeSymbols(arrSymbols) {
+  return function (arr) {
+    return arr.map((subItem) => {
+      let newText = subItem;
+      arrSymbols.forEach((symbol) => {
+        newText = newText.replaceAll(symbol, "");
+      });
+      return newText;
+    });
+  };
+}
 module.exports = {
   readDirectory,
   filterFilesByExtension,
@@ -61,4 +73,5 @@ module.exports = {
   removeEmptyItems,
   removeIfIncluded,
   removeIfSomeContainNumber,
+  removeSymbols,
 };
