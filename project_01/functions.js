@@ -13,15 +13,17 @@ function readDirectory(pathDir) {
   });
 }
 
-function filterFilesByExtension(arrFiles, extension) {
-  return new Promise(function (resolve, reject) {
-    try {
-      const newArr = arrFiles.filter((file) => file.endsWith(extension));
-      resolve(newArr);
-    } catch (error) {
-      reject(error);
-    }
-  });
+function filterFilesByExtension(extension) {
+  return function (arrFiles) {
+    return new Promise(function (resolve, reject) {
+      try {
+        const newArr = arrFiles.filter((file) => file.endsWith(extension));
+        resolve(newArr);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  };
 }
 
 function readFile(path) {
@@ -43,8 +45,10 @@ function removeEmptyItems(arrRows) {
   return arrRows.filter((row) => row.trim());
 }
 
-function removeIfIncluded(arr, patternText) {
-  return arr.filter((row) => !row.includes(patternText));
+function removeIfIncluded(patternText) {
+  return function (arr) {
+    return arr.filter((row) => !row.includes(patternText));
+  };
 }
 
 function removeIfSomeContainNumber(arr, patternText) {
