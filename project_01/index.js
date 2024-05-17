@@ -1,23 +1,8 @@
 const path = require("path");
 const fn = require("./functions");
+const { symbols } = require("./utils/listSymbols");
 
 const pathComplete = path.join(__dirname, "legendas");
-const symbols = [
-  ".",
-  "?",
-  "-",
-  ",",
-  '"',
-  "♪",
-  "_",
-  "<i>",
-  "</i>",
-  "\r",
-  "[",
-  "]",
-  ")",
-  "(",
-];
 
 fn.readDirectory(pathComplete)
   .then(fn.filterFilesByExtension("srt"))
